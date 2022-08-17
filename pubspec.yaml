@@ -10,6 +10,7 @@ dependencies:
   dart_frog: ^0.1.0
   frogs_data_source:
     path: packages/frogs_data_source
+  path: ^1.8.2
   postgres_frogs_data_source:
     path: packages/postgres_frogs_data_source
 

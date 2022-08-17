@@ -17,34 +17,31 @@ class YamlConfig {
   }
 
   int get port {
-    final port = _config['port'] as YmlInt;
+    final port = YmlInt(int.parse(_config['port'] as String));
     return port.getOrCrash();
   }
 
   String get dbName {
-    final dbName = _config['dbname'] as YmlString;
+    final dbName = YmlString(_config['dbname'] as String);
     return dbName.getOrCrash();
   }
 
   String get username {
-    final username = _config['username'] as YmlString;
+    final username = YmlString(_config['username'] as String);
     return username.getOrCrash();
   }
 
   String get password {
-    final password = _config['password'] as YmlString;
+    final password = YmlString(_config['password'] as String);
     return password.getOrCrash();
   }
 }
 
-final yamlConfigFile = File(
-    'host: localhost port: 5432 dbname: frogs user: frog password: froggy');
-
 yaml.YamlMap _loadConfig() {
-  print(yamlConfigFile);
+  final yamlConfigFile = File(
+      '/Users/wiktor/development/personal/froggy/packages/postgres_frogs_data_source/lib/src/core/config.yaml');
 
-  final yamlString =
-      'host: localhost'; //yamlConfigFile.readAsStringSync();
+  final yamlString = yamlConfigFile.readAsStringSync();
 
   final config = yaml.loadYaml(yamlString) as yaml.YamlMap;
 
