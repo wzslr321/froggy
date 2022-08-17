@@ -1,0 +1,1 @@
+const yamlConfigFilePath = '/config.yml/';

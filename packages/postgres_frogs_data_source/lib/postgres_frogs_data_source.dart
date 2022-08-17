@@ -8,4 +8,4 @@
 /// postgres implementation of frog data source
 library postgres_frog_data_source;
 
-export 'src/postgres_frog_data_source.dart';
+export 'src/postgres_frogs_data_source.dart';
