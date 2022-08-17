@@ -1,5 +1,7 @@
 import 'package:dart_frog/dart_frog.dart';
 
 Response onRequest(RequestContext context) {
-  return Response(body: 'Welcome to Dart Frog!');
+  final count = context.read<int>();
+
+  return Response(body: 'You have requested this route $count time(s)');
 }
