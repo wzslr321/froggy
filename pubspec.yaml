@@ -8,6 +8,10 @@ environment:
 
 dependencies:
   dart_frog: ^0.1.0
+  frogs_data_source:
+    path: packages/frogs_data_source
+  postgres_frogs_data_source:
+    path: packages/postgres_frogs_data_source
 
 dev_dependencies:
   mocktail: ^0.3.0

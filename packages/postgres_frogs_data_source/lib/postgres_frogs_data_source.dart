@@ -6,6 +6,6 @@
 // https://opensource.org/licenses/MIT.
 
 /// postgres implementation of frog data source
-library postgres_frog_data_source;
+library postgres_frogs_data_source;
 
 export 'src/postgres_frogs_data_source.dart';

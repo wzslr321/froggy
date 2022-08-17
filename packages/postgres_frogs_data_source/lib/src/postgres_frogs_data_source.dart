@@ -12,10 +12,8 @@ import 'package:frogs_data_source/frogs_data_source.dart';
 import 'package:frogs_data_source/src/core/typedefs.dart';
 import 'package:frogs_data_source/src/models/frog.dart';
 import 'package:postgres/postgres.dart';
-import 'package:postgres_frog_data_source/src/core/yaml_config.dart';
-import 'package:yaml/yaml.dart' as yaml;
 
-import 'core/constants.dart';
+import 'core/yaml_config.dart';
 
 final _config = YamlConfig();
 
@@ -35,11 +33,14 @@ class PostgresFrogsDataSource implements FrogsDataSource {
   final PostgreSQLConnection _connection;
 
   @override
-  RequestResult<Unit> create() async {
+  RequestResult<Unit> create(Frog frog) async {
     await _connection.open();
     await _connection.execute(
       'CREATE TABLE IF NOT EXISTS frogs (id SERIAL PRIMARY KEY, name VARCHAR(255))',
     );
+
+    // idk how i should close it properly, docs bad
+    await _connection.close();
 
     return right(unit);
   }

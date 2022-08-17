@@ -1,4 +1,4 @@
-name: postgres_frog_data_source
+name: postgres_frogs_data_source
 description: postgres implementation of frog data source
 version: 0.1.0+1
 publish_to: none

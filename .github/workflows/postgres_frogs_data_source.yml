@@ -1,0 +1,23 @@
+name: postgres_frog_data_source
+
+concurrency:
+  group: $-$
+  cancel-in-progress: true
+
+on:
+  pull_request:
+    branches:
+      - main
+      - dev
+    paths:
+      - "packages/postgres_frogs_data_source/**"
+
+jobs:
+  semantic_pull_request:
+    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/semantic_pull_request.yml@v1
+
+
+  build:
+    uses: VeryGoodOpenSource/very_good_workflows/.github/workflows/dart_package.yml@v1
+    with:
+      working_directory: packages/postgres_frogs_data_source

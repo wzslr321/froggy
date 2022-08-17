@@ -2,7 +2,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import 'package:postgres_frog_data_source/src/core/value_failures.dart';
+import 'value_failures.dart';
 
 import 'errors.dart';
 

@@ -1,1 +1,1 @@
-const yamlConfigFilePath = '/config.yml/';
+const yamlConfigFilePath = 'config.yaml';

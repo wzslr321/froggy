@@ -9,3 +9,4 @@
 library frogs_data_source;
 
 export 'src/frogs_data_source.dart';
+export 'src/models/frog.dart';

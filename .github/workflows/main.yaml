@@ -1,4 +1,4 @@
-name: ci
+name: froggy
 
 concurrency:
   group: $-$

@@ -1,11 +1,15 @@
 import 'package:dartz/dartz.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
-import 'package:postgres_frog_data_source/src/core/value_failures.dart';
-import 'package:postgres_frog_data_source/src/core/value_objects.dart';
+import 'value_objects.dart';
+import 'value_failures.dart';
 
 @immutable
 class YmlString extends ValueObject<String> {
   const YmlString._(this.value);
+
+  factory YmlString(String value){
+    return YmlString._(right(value));
+  }
 
   @override
   final Either<ValueFailure<String>, String> value;
@@ -14,6 +18,10 @@ class YmlString extends ValueObject<String> {
 @immutable
 class YmlInt extends ValueObject<int> {
   const YmlInt._(this.value);
+
+  factory YmlInt(int value) {
+    return YmlInt._(right(value));
+  }
 
   @override
   final Either<ValueFailure<int>, int> value;

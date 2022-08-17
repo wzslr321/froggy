@@ -1,19 +1,18 @@
 import 'dart:io';
 
-import 'package:postgres_frog_data_source/src/core/constants.dart';
-import 'package:postgres_frog_data_source/src/core/value_objects.dart';
-import 'package:postgres_frog_data_source/src/core/yml_value_objects.dart';
 import 'package:yaml/yaml.dart' as yaml;
+
+import 'yml_value_objects.dart';
 
 class YamlConfig {
   YamlConfig({
-    Map<String, dynamic>? config,
+    yaml.YamlMap? config,
   }) : _config = config ?? _loadConfig();
 
-  final Map<String, dynamic> _config;
+  final yaml.YamlMap _config;
 
   String get host {
-    final host = _config['host'] as YmlString;
+    final host = YmlString(_config['host'] as String);
     return host.getOrCrash();
   }
 
@@ -38,11 +37,16 @@ class YamlConfig {
   }
 }
 
-Map<String, dynamic> _loadConfig() {
-  final yamlConfigFile = File(yamlConfigFilePath);
-  final yamlString = yamlConfigFile.readAsStringSync();
+final yamlConfigFile = File(
+    'host: localhost port: 5432 dbname: frogs user: frog password: froggy');
 
-  final config = yaml.loadYaml(yamlString);
+yaml.YamlMap _loadConfig() {
+  print(yamlConfigFile);
 
-  return config as Map<String, dynamic>;
+  final yamlString =
+      'host: localhost'; //yamlConfigFile.readAsStringSync();
+
+  final config = yaml.loadYaml(yamlString) as yaml.YamlMap;
+
+  return config;
 }

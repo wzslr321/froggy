@@ -1,4 +1,4 @@
-name: ci
+name: frog_data_source
 
 concurrency:
   group: $-$
@@ -11,7 +11,6 @@ on:
       - dev
     paths:
       - "packages/frogs_data_source/**"
-      # - ".github/workflows/frog.yml"
 
 jobs:
   semantic_pull_request:
