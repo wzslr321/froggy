@@ -13,3 +13,42 @@ services:
       retries: 5
     ports:
       - "5432:5432"
+  server:
+    build:
+      context: server
+    ports:
+      - '8080:8080'
+    volumes:
+      - ./server:/server
+#    depends_on:
+#      postgresql:
+#        condition: service_healthy
+#  app:
+#    build:
+#      context: app
+#    stdin_open: true
+#    tty: true
+#    volumes:
+#      - ./app:/app
+#    ports:
+#      - "8080:8080"
+#    env_file:
+#     - ./env/dart.env
+#    command: >
+#      sh -c "flutter pub get
+#      && flutter run -d web-server --web-port 8080 --web-hostname 0.0.0.0"
+#    depends_on:
+#      - server
+#  nginx:
+#    build:
+#      context: nginx
+#    image: nginx:1.23.1-alpine
+#    volumes:
+#      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+#    ports:
+#      - "80:80"
+#    depends_on:
+      # - app
+#      - server
+volumes:
+  data:

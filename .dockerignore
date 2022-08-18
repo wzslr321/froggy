@@ -1,0 +1,6 @@
+.dockerignore
+.git
+.idea/
+.gitignore
+server/.idea
+app/.idea
